@@ -43,7 +43,7 @@ public class ContRegistro{
         user.setContrasenia(f.campo6);
         uRep.saveAndFlush(user);
         System.out.printf("Usuario creado: ", user);
-        return "redirect:/";
+        return "redirect:/cerrar/";
 
     }
 

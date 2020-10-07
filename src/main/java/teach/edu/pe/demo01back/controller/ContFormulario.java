@@ -29,7 +29,7 @@ public class ContFormulario{
         Usuarios user = uRep.findByUsuarioAndContrasenia(f.campo1, f.campo2);
         if(user!=null){
             System.out.print("*se logea*");
-            return "redirect:/";
+            return "redirect:/cerrar/";
         }
         System.out.print("*Usuario o contraseña incorrecta*");
         return "redirect:/";
