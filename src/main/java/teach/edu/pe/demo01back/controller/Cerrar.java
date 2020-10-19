@@ -16,8 +16,4 @@ public class Cerrar {
     public String getIndex(){
         return "cerrar";
     }
-    @RequestMapping(value = "/",method = RequestMethod.POST)
-    public String salir(){
-        return "redirect:/";
-    }
 }
