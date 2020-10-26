@@ -1,5 +1,6 @@
 package teach.edu.pe.demo01back.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.stereotype.Controller;
@@ -25,11 +26,14 @@ public class ContFormulario{
     }
 
     @RequestMapping(value = "/",method = RequestMethod.POST)
-    public String ingresar(@ModelAttribute Formulario f){
-        Usuarios user = uRep.findByUsuarioAndContrasenia(f.campo1, f.campo2);
+    public String ingresar(@ModelAttribute Formulario f,HttpServletRequest req){
+        Usuarios user = uRep.findByUsuarioAndContrasenia(f.getCampo1(), f.getCampo2());
         if(user!=null){
             System.out.print("*se logea*");
-            return "redirect:/cerrar/";
+            req.getSession().setAttribute("nombre", user.getNombre());
+            req.getSession().setAttribute("apellido", user.getApellido());
+            req.getSession().setAttribute("usuario", user.getUsuario());
+            return "redirect:/home/";
         }
         System.out.print("*Usuario o contraseña incorrecta*");
         return "redirect:/";
