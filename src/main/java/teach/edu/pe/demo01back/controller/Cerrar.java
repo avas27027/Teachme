@@ -1,5 +1,6 @@
 package teach.edu.pe.demo01back.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.stereotype.Controller;
@@ -13,7 +14,10 @@ import teach.edu.pe.demo01back.repository.*;
 @RequestMapping("/cerrar")
 public class Cerrar {
     @RequestMapping(value = "/",method = RequestMethod.GET)
-    public String getIndex(){
-        return "cerrar";
+    public String getIndex(HttpServletRequest req){
+        req.getSession().setAttribute("nombre", "");
+        req.getSession().setAttribute("apellido", "");
+        req.getSession().setAttribute("usuario", "");
+        return "formulario";
     }
 }
