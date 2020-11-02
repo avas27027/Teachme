@@ -18,6 +18,6 @@ public class Cerrar {
         req.getSession().setAttribute("nombre", "");
         req.getSession().setAttribute("apellido", "");
         req.getSession().setAttribute("usuario", "");
-        return "formulario";
+        return "redirect:/";
     }
 }
