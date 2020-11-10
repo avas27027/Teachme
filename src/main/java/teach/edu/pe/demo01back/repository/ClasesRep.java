@@ -6,6 +6,8 @@ import teach.edu.pe.demo01back.model.Clase;
 
 public interface ClasesRep extends JpaRepository<Clase,Long>{
     public List<Clase> findByProfesor(String profesor);
+    public List<Clase> findByNombreAndEstado(String nombre, boolean estado);
     @Transactional
     public long deleteByID(Long ID);
+
 }

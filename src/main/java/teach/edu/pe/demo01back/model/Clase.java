@@ -18,4 +18,6 @@ public class Clase {
     private String rubro;
     private String horario;
     private String profesor;
+    private String alumno;
+    private boolean estado;
 }
